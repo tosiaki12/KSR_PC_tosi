@@ -23,6 +23,9 @@
 
    run f/m/h/u/s
    モーターを制御する　パラメータは順に前進、右、左、後退、停止
+   
+   echo b/e
+   
 
    ピン一覧
    digital I/O
@@ -107,6 +110,7 @@ void meireiRead(String com) {
 
 //命令を実行する
 void chkCommand(String com, char t) {
+   
   if (com.compareTo("test") == 0) {//比較
     Serial.println("vir: " + String(commonVir));
   }
