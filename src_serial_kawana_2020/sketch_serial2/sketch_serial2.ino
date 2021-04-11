@@ -17,7 +17,7 @@
    命令以外は一文字ずつループしながら読む
 
 */
-
+//追加テスト
 //#include <string.h>
 
 const byte commonVir = 1;
