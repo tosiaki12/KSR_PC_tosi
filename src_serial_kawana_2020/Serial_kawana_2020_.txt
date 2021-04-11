@@ -1,0 +1,45 @@
+﻿最終更新：九月三十日
+
+ファイル全体：Ctrl+K, Ctrl+D
+選択範囲：Ctrl+K, Ctrl+F
+
+.inoファイルはスケッチフォルダから出さない
+///////通信ログ削除機能追加する
+
+<run m>]\r\n
+
+<run f>;
+<echo b>;
+<run s>]\r\n
+
+※一行一命令
+
+
+
+
+
+
+
+
+
+
+
+入力済みなどの場合に明示的に表示させる場合は、関数の「(」以降にキャレットを配置し、[Shift]+[Ctrl]+[Space]キーを押下すると、関数の引数説明のポップアップウィンドウを表示
+https://www.ipentec.com/document/visual-studio-function-explain-popup
+
+コード定義ウインドウ
+https://p-nix.hatenadiary.org/entry/20081021/p1
+
+Visual Studio での IntelliSense
+https://docs.microsoft.com/ja-jp/visualstudio/ide/using-intellisense?view=vs-2019
+
+デリゲート - C# によるプログラミング入門 | ++C++; // 未確認飛行 C
+https://ufcpp.net/study/csharp/sp_delegate.html
+
+Windowsフォームで別スレッドからコントロールを操作するには？：.NET TIPS - ＠IT
+https://www.atmarkit.co.jp/ait/articles/0506/17/news111.html
+
+
+
+
+
