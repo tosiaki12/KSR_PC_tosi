@@ -1,9 +1,13 @@
 //モーターの駆動関係
-const int PMM = 10;
-const int PMH = 9;
-const int PMU = 8;
+//前進は左右同時
+const int PMM = 10;//右
+const int PMH =  9;//左
+const int PMU =  8;//後
 
 void setup_drive() {
+	pinMode(PMM, OUTPUT);
+	pinMode(PMH, OUTPUT);
+	pinMode(PMU, OUTPUT);
 }
 
 void loop_drive() {
