@@ -15,7 +15,8 @@
    あればstringにして命令かどうか判定
    命令ならmeireiRead()
    命令以外は一文字ずつループしながら読む
-
+   
+   //-----------------------------------------------------------------
    命令一覧
 
    test
@@ -26,8 +27,9 @@
    
    echo b/e
    
-
+   //-----------------------------------------------------------------
    ピン一覧
+   ピンの設定は機能ごとのファイルで
    digital I/O
    08:drive
    09:drive
@@ -113,8 +115,9 @@ void chkCommand(String com, char t) {
    
   if (com.compareTo("test") == 0) {//比較
     Serial.println("vir: " + String(commonVir));
+    Serial.flush();
   }
-  Serial.flush();
+  
 
   if (com.compareTo("run") == 0)  com_drive(t);
   if (com.compareTo("echo") == 0) com_echo(t);
