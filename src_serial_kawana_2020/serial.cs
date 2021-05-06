@@ -388,5 +388,7 @@ namespace Serial_kawana_2020
             送信テキストボックス.AppendText(c);
             送信ボタン_Click(null, null);
         }
+
+
     }
 }
