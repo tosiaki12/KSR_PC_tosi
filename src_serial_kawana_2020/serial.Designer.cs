@@ -48,8 +48,12 @@
             this.通信ログボックス = new System.Windows.Forms.TextBox();
             this.制御タブ = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.button10 = new System.Windows.Forms.Button();
             this.操作ボタンボックス = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.出力切断ボタン = new System.Windows.Forms.Button();
@@ -77,13 +81,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.確認タイマー = new System.Windows.Forms.Timer(this.components);
-            this.シリアルポート = new System.IO.Ports.SerialPort(this.components);
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.確認タイマー = new System.Windows.Forms.Timer(this.components);
+            this.シリアルポート = new System.IO.Ports.SerialPort(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.タブコントロール.SuspendLayout();
             this.テキスト送受信タブ.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -97,6 +102,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.操作ボタンボックス.SuspendLayout();
             this.命令文一覧タブ.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -323,35 +331,96 @@
             this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.DimGray;
+            this.splitContainer2.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel1_Paint);
+            // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer2.Panel2.Controls.Add(this.label3);
-            this.splitContainer2.Panel2.Controls.Add(this.label2);
+            this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel2);
             this.splitContainer2.Panel2.Controls.Add(this.操作ボタンボックス);
             this.splitContainer2.Size = new System.Drawing.Size(770, 429);
             this.splitContainer2.SplitterDistance = 382;
             this.splitContainer2.TabIndex = 1;
             // 
-            // label3
+            // flowLayoutPanel2
             // 
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.label3.Location = new System.Drawing.Point(96, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(279, 32);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "未実装";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowLayoutPanel2.Controls.Add(this.button8);
+            this.flowLayoutPanel2.Controls.Add(this.button9);
+            this.flowLayoutPanel2.Controls.Add(this.numericUpDown1);
+            this.flowLayoutPanel2.Controls.Add(this.numericUpDown2);
+            this.flowLayoutPanel2.Controls.Add(this.button10);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox1);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 369);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(370, 55);
+            this.flowLayoutPanel2.TabIndex = 1;
             // 
-            // label2
+            // button8
             // 
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 32);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "状態：";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button8.Location = new System.Drawing.Point(3, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(84, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 1;
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(165, 3);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(97, 19);
+            this.numericUpDown1.TabIndex = 2;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(3, 32);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 19);
+            this.numericUpDown2.TabIndex = 3;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(129, 32);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // 操作ボタンボックス
             // 
@@ -364,7 +433,7 @@
             this.操作ボタンボックス.Controls.Add(this.右旋回ボタン);
             this.操作ボタンボックス.Controls.Add(this.前進ボタン);
             this.操作ボタンボックス.Controls.Add(this.停止ボタン);
-            this.操作ボタンボックス.Location = new System.Drawing.Point(5, 58);
+            this.操作ボタンボックス.Location = new System.Drawing.Point(3, 3);
             this.操作ボタンボックス.Name = "操作ボタンボックス";
             this.操作ボタンボックス.Size = new System.Drawing.Size(376, 366);
             this.操作ボタンボックス.TabIndex = 0;
@@ -685,50 +754,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // 確認タイマー
-            // 
-            this.確認タイマー.Enabled = true;
-            this.確認タイマー.Interval = 5000;
-            this.確認タイマー.Tick += new System.EventHandler(this.確認タイマー_Tick);
-            // 
-            // シリアルポート
-            // 
-            this.シリアルポート.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.シリアルポート_DataReceived);
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button7.Location = new System.Drawing.Point(321, 138);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(153, 61);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "消灯";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button6.Location = new System.Drawing.Point(162, 138);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(153, 61);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "停止";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button5.Location = new System.Drawing.Point(3, 138);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(153, 61);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "点灯";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.Gainsboro;
@@ -751,6 +776,61 @@
             this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox5.Size = new System.Drawing.Size(759, 129);
             this.textBox5.TabIndex = 3;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button5.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button5.Location = new System.Drawing.Point(3, 138);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(153, 61);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "点灯";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button6.Location = new System.Drawing.Point(162, 138);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(153, 61);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "停止";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button7.Location = new System.Drawing.Point(321, 138);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(153, 61);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "消灯";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // 確認タイマー
+            // 
+            this.確認タイマー.Enabled = true;
+            this.確認タイマー.Interval = 5000;
+            this.確認タイマー.Tick += new System.EventHandler(this.確認タイマー_Tick);
+            // 
+            // シリアルポート
+            // 
+            this.シリアルポート.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.シリアルポート_DataReceived);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(210, 32);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 16);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // serial
             // 
@@ -779,6 +859,10 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.操作ボタンボックス.ResumeLayout(false);
             this.操作ボタンボックス.PerformLayout();
             this.命令文一覧タブ.ResumeLayout(false);
@@ -823,8 +907,6 @@
         private System.Windows.Forms.Button 前進ボタン;
         private System.Windows.Forms.Button 後退ボタン;
         private System.Windows.Forms.Button 停止ボタン;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox 操作ボタンボックス;
         private System.Windows.Forms.Button 出力切断ボタン;
         private System.Windows.Forms.Label 操作状態ラベル;
@@ -852,5 +934,12 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
