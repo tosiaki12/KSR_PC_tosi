@@ -54,6 +54,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.button10 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.操作ボタンボックス = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.出力切断ボタン = new System.Windows.Forms.Button();
@@ -63,9 +64,6 @@
             this.右旋回ボタン = new System.Windows.Forms.Button();
             this.前進ボタン = new System.Windows.Forms.Button();
             this.停止ボタン = new System.Windows.Forms.Button();
-            this.命令文一覧タブ = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.ピン管理タブ = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -88,7 +86,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.確認タイマー = new System.Windows.Forms.Timer(this.components);
             this.シリアルポート = new System.IO.Ports.SerialPort(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.タブコントロール.SuspendLayout();
             this.テキスト送受信タブ.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -106,7 +103,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.操作ボタンボックス.SuspendLayout();
-            this.命令文一覧タブ.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -120,8 +116,6 @@
             // 
             this.タブコントロール.Controls.Add(this.テキスト送受信タブ);
             this.タブコントロール.Controls.Add(this.制御タブ);
-            this.タブコントロール.Controls.Add(this.命令文一覧タブ);
-            this.タブコントロール.Controls.Add(this.ピン管理タブ);
             this.タブコントロール.Controls.Add(this.tabPage1);
             this.タブコントロール.Dock = System.Windows.Forms.DockStyle.Fill;
             this.タブコントロール.Location = new System.Drawing.Point(0, 0);
@@ -422,6 +416,17 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(210, 32);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 16);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // 操作ボタンボックス
             // 
             this.操作ボタンボックス.BackColor = System.Drawing.SystemColors.Control;
@@ -529,38 +534,6 @@
             this.停止ボタン.Text = "停\r\n止";
             this.停止ボタン.UseVisualStyleBackColor = true;
             this.停止ボタン.Click += new System.EventHandler(this.操作ボタンs_Click);
-            // 
-            // 命令文一覧タブ
-            // 
-            this.命令文一覧タブ.Controls.Add(this.listBox1);
-            this.命令文一覧タブ.Location = new System.Drawing.Point(4, 22);
-            this.命令文一覧タブ.Name = "命令文一覧タブ";
-            this.命令文一覧タブ.Padding = new System.Windows.Forms.Padding(3);
-            this.命令文一覧タブ.Size = new System.Drawing.Size(776, 435);
-            this.命令文一覧タブ.TabIndex = 3;
-            this.命令文一覧タブ.Text = "命令文一覧";
-            this.命令文一覧タブ.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Items.AddRange(new object[] {
-            "echo"});
-            this.listBox1.Location = new System.Drawing.Point(-4, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(420, 136);
-            this.listBox1.TabIndex = 0;
-            // 
-            // ピン管理タブ
-            // 
-            this.ピン管理タブ.Location = new System.Drawing.Point(4, 22);
-            this.ピン管理タブ.Name = "ピン管理タブ";
-            this.ピン管理タブ.Padding = new System.Windows.Forms.Padding(3);
-            this.ピン管理タブ.Size = new System.Drawing.Size(776, 435);
-            this.ピン管理タブ.TabIndex = 4;
-            this.ピン管理タブ.Text = "ピン管理";
-            this.ピン管理タブ.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -821,17 +794,6 @@
             // 
             this.シリアルポート.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.シリアルポート_DataReceived);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(210, 32);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 16);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // serial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -865,7 +827,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.操作ボタンボックス.ResumeLayout(false);
             this.操作ボタンボックス.PerformLayout();
-            this.命令文一覧タブ.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -911,9 +872,6 @@
         private System.Windows.Forms.Button 出力切断ボタン;
         private System.Windows.Forms.Label 操作状態ラベル;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage 命令文一覧タブ;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TabPage ピン管理タブ;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
