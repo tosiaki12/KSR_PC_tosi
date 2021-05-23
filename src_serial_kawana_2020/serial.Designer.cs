@@ -49,12 +49,13 @@
             this.制御タブ = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.探知開始ボタン = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.cdnA = new System.Windows.Forms.NumericUpDown();
+            this.cdnB = new System.Windows.Forms.NumericUpDown();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.表示テスト = new System.Windows.Forms.Button();
+            this.消去テスト = new System.Windows.Forms.Button();
             this.操作ボタンボックス = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.出力切断ボタン = new System.Windows.Forms.Button();
@@ -100,8 +101,8 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnB)).BeginInit();
             this.操作ボタンボックス.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
@@ -341,91 +342,101 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button8);
-            this.flowLayoutPanel2.Controls.Add(this.button9);
-            this.flowLayoutPanel2.Controls.Add(this.numericUpDown1);
-            this.flowLayoutPanel2.Controls.Add(this.numericUpDown2);
+            this.flowLayoutPanel2.Controls.Add(this.探知開始ボタン);
             this.flowLayoutPanel2.Controls.Add(this.button10);
+            this.flowLayoutPanel2.Controls.Add(this.cdnA);
+            this.flowLayoutPanel2.Controls.Add(this.cdnB);
             this.flowLayoutPanel2.Controls.Add(this.checkBox1);
+            this.flowLayoutPanel2.Controls.Add(this.表示テスト);
+            this.flowLayoutPanel2.Controls.Add(this.消去テスト);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 369);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(370, 55);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
-            // button8
+            // 探知開始ボタン
             // 
-            this.button8.Location = new System.Drawing.Point(3, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(84, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(165, 3);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(97, 19);
-            this.numericUpDown1.TabIndex = 2;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(3, 32);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 19);
-            this.numericUpDown2.TabIndex = 3;
+            this.探知開始ボタン.Location = new System.Drawing.Point(3, 3);
+            this.探知開始ボタン.Name = "探知開始ボタン";
+            this.探知開始ボタン.Size = new System.Drawing.Size(75, 23);
+            this.探知開始ボタン.TabIndex = 6;
+            this.探知開始ボタン.Text = "探知開始";
+            this.探知開始ボタン.UseVisualStyleBackColor = true;
+            this.探知開始ボタン.Click += new System.EventHandler(this.探知開始ボタン_Click);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(129, 32);
+            this.button10.Location = new System.Drawing.Point(84, 3);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(75, 23);
             this.button10.TabIndex = 4;
-            this.button10.Text = "button10";
+            this.button10.Text = "クリア";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // cdnA
+            // 
+            this.cdnA.Location = new System.Drawing.Point(165, 3);
+            this.cdnA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.cdnA.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.cdnA.Name = "cdnA";
+            this.cdnA.Size = new System.Drawing.Size(60, 19);
+            this.cdnA.TabIndex = 2;
+            // 
+            // cdnB
+            // 
+            this.cdnB.Location = new System.Drawing.Point(231, 3);
+            this.cdnB.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.cdnB.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.cdnB.Name = "cdnB";
+            this.cdnB.Size = new System.Drawing.Size(60, 19);
+            this.cdnB.TabIndex = 3;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(210, 32);
+            this.checkBox1.Location = new System.Drawing.Point(297, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 16);
+            this.checkBox1.Size = new System.Drawing.Size(60, 16);
             this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.Text = "極座標";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // 表示テスト
+            // 
+            this.表示テスト.Location = new System.Drawing.Point(3, 32);
+            this.表示テスト.Name = "表示テスト";
+            this.表示テスト.Size = new System.Drawing.Size(75, 23);
+            this.表示テスト.TabIndex = 0;
+            this.表示テスト.Text = "表示テスト";
+            this.表示テスト.UseVisualStyleBackColor = true;
+            this.表示テスト.Click += new System.EventHandler(this.表示テスト_Click);
+            // 
+            // 消去テスト
+            // 
+            this.消去テスト.Location = new System.Drawing.Point(84, 32);
+            this.消去テスト.Name = "消去テスト";
+            this.消去テスト.Size = new System.Drawing.Size(75, 23);
+            this.消去テスト.TabIndex = 1;
+            this.消去テスト.Text = "消去テスト";
+            this.消去テスト.UseVisualStyleBackColor = true;
+            this.消去テスト.Click += new System.EventHandler(this.消去テスト_Click);
             // 
             // 操作ボタンボックス
             // 
@@ -712,7 +723,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(598, 39);
             this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -823,8 +833,8 @@
             this.splitContainer2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnB)).EndInit();
             this.操作ボタンボックス.ResumeLayout(false);
             this.操作ボタンボックス.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -893,11 +903,12 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Button 表示テスト;
+        private System.Windows.Forms.Button 消去テスト;
+        private System.Windows.Forms.NumericUpDown cdnA;
+        private System.Windows.Forms.NumericUpDown cdnB;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button 探知開始ボタン;
     }
 }

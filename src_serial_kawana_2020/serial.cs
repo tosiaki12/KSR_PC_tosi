@@ -227,6 +227,8 @@ namespace Serial_kawana_2020
              * ';'は命令の改行
              * ']'は命令の送信（最終行）
              * 
+             * 送信ボタンを押さなくても送信文字があれば送信
+             * 
              */
             string text = 送信テキストボックス.Text;
 
@@ -258,7 +260,7 @@ namespace Serial_kawana_2020
         {
             //https://www.atmarkit.co.jp/ait/articles/0506/17/news111.html
             //Windowsフォームで別スレッドからコントロールを操作するには？
-            if (!(シリアルポート.IsOpen)) return;
+            //if (!(シリアルポート.IsOpen)) return;
             try
             {
                 string data = シリアルポート.ReadTo("\r\n");//改行まで読む
@@ -289,7 +291,7 @@ namespace Serial_kawana_2020
 
 
 
-        //保安処理---------------------------------------------------------------------------------------
+        //停止処理---------------------------------------------------------------------------------------
         private void 出力切断ボタン_Click(object sender, EventArgs e)//実装中
         {
             if (出力切断ボタン.BackColor == Color.Firebrick)
@@ -321,73 +323,6 @@ namespace Serial_kawana_2020
 
         //---------------------------------------------------------------------------------------
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText("run s;\r\nrun m]\r\n");
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            string c = "LEDa " + textBox1.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string c = "LEDb " + textBox2.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string c = "LEDc " + textBox3.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string c = "LEDd " + textBox4.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            string c = "onLED 0";
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            string c = "ofLED 0";
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            string c = "poff 0";
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
 
 
     }
