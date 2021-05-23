@@ -343,13 +343,5 @@ namespace Serial_kawana_2020
 
         }
 
-        private void 座標擬送信ボタン_Click(object sender, EventArgs e)
-        {
-            int t = (int)cdnA.Value;
-            int y = (int)cdnB.Value;
-            string a = "e" + t.ToString();
-            string b = y.ToString();
-            送信テキストボックス.AppendText(a + "," + b + "]\r\n");
-        }
     }
 }

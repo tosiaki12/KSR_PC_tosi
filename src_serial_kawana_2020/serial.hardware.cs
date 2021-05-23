@@ -27,8 +27,8 @@ namespace Serial_kawana_2020
 
             /*
              * 小文字アルファベット一文字で内容を判別
-             * e : エコー
-             * "e102,32" "e0,4"
+             * d : エコー
+             * "d102,32" "d0,4"
              *  "102,32"  "0,4"
              * 
              * 
@@ -39,7 +39,7 @@ namespace Serial_kawana_2020
             {
                 default:
                     break;
-                case 'e':
+                case 'd':
                     this.getcoord(receivedText);
                     break;
             }

@@ -115,11 +115,13 @@ namespace Serial_kawana_2020
                 探知開始ボタン.Text = "探知停止";
                 //echoPGrh = splitContainer2.Panel1.CreateGraphics();
                 initDraw();
+                送信テキストボックス.AppendText( "echo b]\r\n");
             } else
             {
                 isstart = false;
                 探知開始ボタン.Text = "探知開始";
                 //echoPGrh.Dispose();
+                送信テキストボックス.AppendText("echo e]\r\n");
             }
         }
 
@@ -169,6 +171,17 @@ namespace Serial_kawana_2020
             echoPGrh.Dispose();
             initDraw();
         }
+
+
+        private void 座標擬送信ボタン_Click(object sender, EventArgs e)
+        {
+            int t = (int)cdnA.Value;
+            int y = (int)cdnB.Value;
+            string a = "d" + t.ToString();
+            string b = y.ToString();
+            送信テキストボックス.AppendText(a + "," + b + "]\r\n");
+        }
+
 
     }
 
