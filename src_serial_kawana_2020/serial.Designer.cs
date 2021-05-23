@@ -35,6 +35,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.試験送信ボタン = new System.Windows.Forms.Button();
             this.命令化チェックボックス = new System.Windows.Forms.CheckBox();
+            this.擬送信チェックボックス = new System.Windows.Forms.CheckBox();
             this.状態グリッド = new System.Windows.Forms.DataGridView();
             this.名前 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状態 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +88,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.確認タイマー = new System.Windows.Forms.Timer(this.components);
             this.シリアルポート = new System.IO.Ports.SerialPort(this.components);
+            this.座標擬送信ボタン = new System.Windows.Forms.Button();
             this.タブコントロール.SuspendLayout();
             this.テキスト送受信タブ.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -165,6 +167,7 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel1.Controls.Add(this.試験送信ボタン);
             this.flowLayoutPanel1.Controls.Add(this.命令化チェックボックス);
+            this.flowLayoutPanel1.Controls.Add(this.擬送信チェックボックス);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 177);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(237, 102);
@@ -191,6 +194,17 @@
             this.命令化チェックボックス.TabIndex = 1;
             this.命令化チェックボックス.Text = "命令として送信";
             this.命令化チェックボックス.UseVisualStyleBackColor = true;
+            // 
+            // 擬送信チェックボックス
+            // 
+            this.擬送信チェックボックス.AutoSize = true;
+            this.擬送信チェックボックス.Location = new System.Drawing.Point(3, 33);
+            this.擬送信チェックボックス.Name = "擬送信チェックボックス";
+            this.擬送信チェックボックス.Size = new System.Drawing.Size(60, 16);
+            this.擬送信チェックボックス.TabIndex = 2;
+            this.擬送信チェックボックス.Text = "擬送信";
+            this.擬送信チェックボックス.UseVisualStyleBackColor = true;
+            this.擬送信チェックボックス.CheckedChanged += new System.EventHandler(this.擬送信チェックボックス_CheckedChanged);
             // 
             // 状態グリッド
             // 
@@ -349,6 +363,7 @@
             this.flowLayoutPanel2.Controls.Add(this.checkBox1);
             this.flowLayoutPanel2.Controls.Add(this.表示テスト);
             this.flowLayoutPanel2.Controls.Add(this.消去テスト);
+            this.flowLayoutPanel2.Controls.Add(this.座標擬送信ボタン);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 369);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(370, 55);
@@ -804,6 +819,16 @@
             // 
             this.シリアルポート.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.シリアルポート_DataReceived);
             // 
+            // 座標擬送信ボタン
+            // 
+            this.座標擬送信ボタン.Location = new System.Drawing.Point(165, 32);
+            this.座標擬送信ボタン.Name = "座標擬送信ボタン";
+            this.座標擬送信ボタン.Size = new System.Drawing.Size(75, 23);
+            this.座標擬送信ボタン.TabIndex = 7;
+            this.座標擬送信ボタン.Text = "擬送信";
+            this.座標擬送信ボタン.UseVisualStyleBackColor = true;
+            this.座標擬送信ボタン.Click += new System.EventHandler(this.座標擬送信ボタン_Click);
+            // 
             // serial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -910,5 +935,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button 探知開始ボタン;
+        private System.Windows.Forms.CheckBox 擬送信チェックボックス;
+        private System.Windows.Forms.Button 座標擬送信ボタン;
     }
 }

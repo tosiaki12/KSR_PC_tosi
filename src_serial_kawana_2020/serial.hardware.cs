@@ -14,13 +14,14 @@ namespace Serial_kawana_2020
 
         void 送信時処理(string sendedText)//送信後に動作
         {
-
+            Console.WriteLine(sendedText);
+            if (擬送信チェックボックス.Checked) tryRecData(true, sendedText);
         }
 
         void 受信時処理(string receivedText)//受信したとき動作
         {
 
-
+            Console.WriteLine("recieved:"+ receivedText);
 
             //分解---------------------------------------------------------------------------------------
 
@@ -53,9 +54,9 @@ namespace Serial_kawana_2020
             string rc = d.Substring(1);//'e'を削除
             int sp = rc.IndexOf(',');
             int a = 0;
-            Int32.TryParse(d.Substring(0,  sp), out a);
+            Int32.TryParse(rc.Substring(0,  sp), out a);
             int b = 0;
-            Int32.TryParse(d.Substring(sp + 1), out b);
+            Int32.TryParse(rc.Substring(sp + 1), out b);
             setCoord(true, a, b);
             prot();
         }

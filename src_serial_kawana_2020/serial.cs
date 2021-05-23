@@ -21,8 +21,8 @@ namespace Serial_kawana_2020
         private String 送信テキスト;//送信時更新
         private String 受信テキスト;
 
-        private String[] 送信データ = { "test" , "0" };//四文字程度、一文字
-        private String[] 受信データ = { "test" , "0" };
+        private String[] 送信データ = { "test", "0" };//四文字程度、一文字
+        private String[] 受信データ = { "test", "0" };
 
         private delegate void delegate_受信データ表示(String text);
 
@@ -191,26 +191,27 @@ namespace Serial_kawana_2020
 
         private void 送信ボタン_Click(object sender, EventArgs e)
         {
-            String 送信テキスト = 送信テキストボックス.Text;
-            if (String.IsNullOrWhiteSpace(送信テキスト)) return;
-            if (命令化チェックボックス.Checked == true) 送信テキスト = '<' + 送信テキスト + '>';
+            String 送信テキストk = 送信テキストボックス.Text;
+            if (String.IsNullOrWhiteSpace(送信テキストk)) return;
+            if (命令化チェックボックス.Checked == true) 送信テキストk = '<' + 送信テキストk + '>';
             if (送信ボタン.BackColor == Color.DarkRed)
             {
-                通信ログボックス.AppendText(送信テキスト + "\r\n");
+                通信ログボックス.AppendText(送信テキストk + "\r\n");
+                送信時処理(送信テキストk);
                 送信テキストボックス.Clear();
                 return;
             }
             try
             {
-                シリアルポート.Write(送信テキスト);
+                シリアルポート.Write(送信テキストk);
             }
             catch (Exception ex)
             {
                 通信ログボックス.AppendText(ex.ToString() + "\r\n");
                 return;
             }
-            通信ログボックス.AppendText("送信-> " + 送信テキスト + "\r\n");
-            this.送信テキスト = 送信テキスト;
+            通信ログボックス.AppendText("送信-> " + 送信テキストk + "\r\n");
+            this.送信テキスト = 送信テキストk;
             送信時処理(this.送信テキスト);
             送信テキストボックス.Clear();
         }
@@ -258,12 +259,21 @@ namespace Serial_kawana_2020
 
         private void シリアルポート_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            tryRecData(false, "ddd");
+        }
+
+        private void tryRecData(bool isuseD, string dData)
+        {
             //https://www.atmarkit.co.jp/ait/articles/0506/17/news111.html
             //Windowsフォームで別スレッドからコントロールを操作するには？
             //if (!(シリアルポート.IsOpen)) return;
             try
             {
-                string data = シリアルポート.ReadTo("\r\n");//改行まで読む
+                string data = "nowrite";
+                if (!(isuseD)) data = シリアルポート.ReadTo("\r\n");//改行まで読む
+
+                if (isuseD) data = dData;//擬受信用
+
                 delegate_受信データ表示 d = new delegate_受信データ表示(受信データ表示);
                 Invoke(d, data);//安全にdを呼び出す
                 //Invoke(new delegate_受信データ表示(受信データ表示), new Object[] { data });
@@ -272,6 +282,9 @@ namespace Serial_kawana_2020
             {
                 通信ログボックス.AppendText(ex.ToString() + "\r\n");
             }
+
+
+
         }
 
         private void 受信データ表示(string text)
@@ -321,9 +334,22 @@ namespace Serial_kawana_2020
 
 
 
+
+
         //---------------------------------------------------------------------------------------
 
+        private void 擬送信チェックボックス_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
 
+        private void 座標擬送信ボタン_Click(object sender, EventArgs e)
+        {
+            int t = (int)cdnA.Value;
+            int y = (int)cdnB.Value;
+            string a = "e" + t.ToString();
+            string b = y.ToString();
+            送信テキストボックス.AppendText(a + "," + b + "]\r\n");
+        }
     }
 }
