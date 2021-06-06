@@ -35,6 +35,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.試験送信ボタン = new System.Windows.Forms.Button();
             this.命令化チェックボックス = new System.Windows.Forms.CheckBox();
+            this.擬送信チェックボックス = new System.Windows.Forms.CheckBox();
             this.状態グリッド = new System.Windows.Forms.DataGridView();
             this.名前 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状態 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +49,14 @@
             this.通信ログボックス = new System.Windows.Forms.TextBox();
             this.制御タブ = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.探知開始ボタン = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.cdnA = new System.Windows.Forms.NumericUpDown();
+            this.cdnB = new System.Windows.Forms.NumericUpDown();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.表示テスト = new System.Windows.Forms.Button();
+            this.消去テスト = new System.Windows.Forms.Button();
             this.操作ボタンボックス = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.出力切断ボタン = new System.Windows.Forms.Button();
@@ -59,9 +66,6 @@
             this.右旋回ボタン = new System.Windows.Forms.Button();
             this.前進ボタン = new System.Windows.Forms.Button();
             this.停止ボタン = new System.Windows.Forms.Button();
-            this.命令文一覧タブ = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.ピン管理タブ = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -77,13 +81,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.確認タイマー = new System.Windows.Forms.Timer(this.components);
-            this.シリアルポート = new System.IO.Ports.SerialPort(this.components);
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.確認タイマー = new System.Windows.Forms.Timer(this.components);
+            this.シリアルポート = new System.IO.Ports.SerialPort(this.components);
+            this.座標擬送信ボタン = new System.Windows.Forms.Button();
             this.タブコントロール.SuspendLayout();
             this.テキスト送受信タブ.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -97,8 +102,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnB)).BeginInit();
             this.操作ボタンボックス.SuspendLayout();
-            this.命令文一覧タブ.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -112,8 +119,6 @@
             // 
             this.タブコントロール.Controls.Add(this.テキスト送受信タブ);
             this.タブコントロール.Controls.Add(this.制御タブ);
-            this.タブコントロール.Controls.Add(this.命令文一覧タブ);
-            this.タブコントロール.Controls.Add(this.ピン管理タブ);
             this.タブコントロール.Controls.Add(this.tabPage1);
             this.タブコントロール.Dock = System.Windows.Forms.DockStyle.Fill;
             this.タブコントロール.Location = new System.Drawing.Point(0, 0);
@@ -162,6 +167,7 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel1.Controls.Add(this.試験送信ボタン);
             this.flowLayoutPanel1.Controls.Add(this.命令化チェックボックス);
+            this.flowLayoutPanel1.Controls.Add(this.擬送信チェックボックス);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 177);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(237, 102);
@@ -188,6 +194,17 @@
             this.命令化チェックボックス.TabIndex = 1;
             this.命令化チェックボックス.Text = "命令として送信";
             this.命令化チェックボックス.UseVisualStyleBackColor = true;
+            // 
+            // 擬送信チェックボックス
+            // 
+            this.擬送信チェックボックス.AutoSize = true;
+            this.擬送信チェックボックス.Location = new System.Drawing.Point(3, 33);
+            this.擬送信チェックボックス.Name = "擬送信チェックボックス";
+            this.擬送信チェックボックス.Size = new System.Drawing.Size(60, 16);
+            this.擬送信チェックボックス.TabIndex = 2;
+            this.擬送信チェックボックス.Text = "擬送信";
+            this.擬送信チェックボックス.UseVisualStyleBackColor = true;
+            this.擬送信チェックボックス.CheckedChanged += new System.EventHandler(this.擬送信チェックボックス_CheckedChanged);
             // 
             // 状態グリッド
             // 
@@ -323,35 +340,118 @@
             this.splitContainer2.Location = new System.Drawing.Point(3, 3);
             this.splitContainer2.Name = "splitContainer2";
             // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.DimGray;
+            this.splitContainer2.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel1_Paint);
+            // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer2.Panel2.Controls.Add(this.label3);
-            this.splitContainer2.Panel2.Controls.Add(this.label2);
+            this.splitContainer2.Panel2.Controls.Add(this.flowLayoutPanel2);
             this.splitContainer2.Panel2.Controls.Add(this.操作ボタンボックス);
             this.splitContainer2.Size = new System.Drawing.Size(770, 429);
             this.splitContainer2.SplitterDistance = 382;
             this.splitContainer2.TabIndex = 1;
             // 
-            // label3
+            // flowLayoutPanel2
             // 
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.label3.Location = new System.Drawing.Point(96, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(279, 32);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "未実装";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowLayoutPanel2.Controls.Add(this.探知開始ボタン);
+            this.flowLayoutPanel2.Controls.Add(this.button10);
+            this.flowLayoutPanel2.Controls.Add(this.cdnA);
+            this.flowLayoutPanel2.Controls.Add(this.cdnB);
+            this.flowLayoutPanel2.Controls.Add(this.checkBox1);
+            this.flowLayoutPanel2.Controls.Add(this.表示テスト);
+            this.flowLayoutPanel2.Controls.Add(this.消去テスト);
+            this.flowLayoutPanel2.Controls.Add(this.座標擬送信ボタン);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 369);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(370, 55);
+            this.flowLayoutPanel2.TabIndex = 1;
             // 
-            // label2
+            // 探知開始ボタン
             // 
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 20F);
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 32);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "状態：";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.探知開始ボタン.Location = new System.Drawing.Point(3, 3);
+            this.探知開始ボタン.Name = "探知開始ボタン";
+            this.探知開始ボタン.Size = new System.Drawing.Size(75, 23);
+            this.探知開始ボタン.TabIndex = 6;
+            this.探知開始ボタン.Text = "探知開始";
+            this.探知開始ボタン.UseVisualStyleBackColor = true;
+            this.探知開始ボタン.Click += new System.EventHandler(this.探知開始ボタン_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(84, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "クリア";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // cdnA
+            // 
+            this.cdnA.Location = new System.Drawing.Point(165, 3);
+            this.cdnA.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.cdnA.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.cdnA.Name = "cdnA";
+            this.cdnA.Size = new System.Drawing.Size(60, 19);
+            this.cdnA.TabIndex = 2;
+            // 
+            // cdnB
+            // 
+            this.cdnB.Location = new System.Drawing.Point(231, 3);
+            this.cdnB.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.cdnB.Minimum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            -2147483648});
+            this.cdnB.Name = "cdnB";
+            this.cdnB.Size = new System.Drawing.Size(60, 19);
+            this.cdnB.TabIndex = 3;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(297, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(60, 16);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "極座標";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // 表示テスト
+            // 
+            this.表示テスト.Location = new System.Drawing.Point(3, 32);
+            this.表示テスト.Name = "表示テスト";
+            this.表示テスト.Size = new System.Drawing.Size(75, 23);
+            this.表示テスト.TabIndex = 0;
+            this.表示テスト.Text = "表示テスト";
+            this.表示テスト.UseVisualStyleBackColor = true;
+            this.表示テスト.Click += new System.EventHandler(this.表示テスト_Click);
+            // 
+            // 消去テスト
+            // 
+            this.消去テスト.Location = new System.Drawing.Point(84, 32);
+            this.消去テスト.Name = "消去テスト";
+            this.消去テスト.Size = new System.Drawing.Size(75, 23);
+            this.消去テスト.TabIndex = 1;
+            this.消去テスト.Text = "消去テスト";
+            this.消去テスト.UseVisualStyleBackColor = true;
+            this.消去テスト.Click += new System.EventHandler(this.消去テスト_Click);
             // 
             // 操作ボタンボックス
             // 
@@ -364,7 +464,7 @@
             this.操作ボタンボックス.Controls.Add(this.右旋回ボタン);
             this.操作ボタンボックス.Controls.Add(this.前進ボタン);
             this.操作ボタンボックス.Controls.Add(this.停止ボタン);
-            this.操作ボタンボックス.Location = new System.Drawing.Point(5, 58);
+            this.操作ボタンボックス.Location = new System.Drawing.Point(3, 3);
             this.操作ボタンボックス.Name = "操作ボタンボックス";
             this.操作ボタンボックス.Size = new System.Drawing.Size(376, 366);
             this.操作ボタンボックス.TabIndex = 0;
@@ -460,38 +560,6 @@
             this.停止ボタン.Text = "停\r\n止";
             this.停止ボタン.UseVisualStyleBackColor = true;
             this.停止ボタン.Click += new System.EventHandler(this.操作ボタンs_Click);
-            // 
-            // 命令文一覧タブ
-            // 
-            this.命令文一覧タブ.Controls.Add(this.listBox1);
-            this.命令文一覧タブ.Location = new System.Drawing.Point(4, 22);
-            this.命令文一覧タブ.Name = "命令文一覧タブ";
-            this.命令文一覧タブ.Padding = new System.Windows.Forms.Padding(3);
-            this.命令文一覧タブ.Size = new System.Drawing.Size(776, 435);
-            this.命令文一覧タブ.TabIndex = 3;
-            this.命令文一覧タブ.Text = "命令文一覧";
-            this.命令文一覧タブ.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Items.AddRange(new object[] {
-            "echo"});
-            this.listBox1.Location = new System.Drawing.Point(-4, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(420, 136);
-            this.listBox1.TabIndex = 0;
-            // 
-            // ピン管理タブ
-            // 
-            this.ピン管理タブ.Location = new System.Drawing.Point(4, 22);
-            this.ピン管理タブ.Name = "ピン管理タブ";
-            this.ピン管理タブ.Padding = new System.Windows.Forms.Padding(3);
-            this.ピン管理タブ.Size = new System.Drawing.Size(776, 435);
-            this.ピン管理タブ.TabIndex = 4;
-            this.ピン管理タブ.Text = "ピン管理";
-            this.ピン管理タブ.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -670,7 +738,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(598, 39);
             this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -684,50 +751,6 @@
             this.button1.Text = "送信";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // 確認タイマー
-            // 
-            this.確認タイマー.Enabled = true;
-            this.確認タイマー.Interval = 5000;
-            this.確認タイマー.Tick += new System.EventHandler(this.確認タイマー_Tick);
-            // 
-            // シリアルポート
-            // 
-            this.シリアルポート.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.シリアルポート_DataReceived);
-            // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button7.Location = new System.Drawing.Point(321, 138);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(153, 61);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "消灯";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button6.Location = new System.Drawing.Point(162, 138);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(153, 61);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "停止";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button5.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button5.Location = new System.Drawing.Point(3, 138);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(153, 61);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "点灯";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -751,6 +774,60 @@
             this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox5.Size = new System.Drawing.Size(759, 129);
             this.textBox5.TabIndex = 3;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button5.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button5.Location = new System.Drawing.Point(3, 138);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(153, 61);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "点灯";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button6.Location = new System.Drawing.Point(162, 138);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(153, 61);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "停止";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button7.Location = new System.Drawing.Point(321, 138);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(153, 61);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "消灯";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // 確認タイマー
+            // 
+            this.確認タイマー.Enabled = true;
+            this.確認タイマー.Interval = 5000;
+            this.確認タイマー.Tick += new System.EventHandler(this.確認タイマー_Tick);
+            // 
+            // シリアルポート
+            // 
+            this.シリアルポート.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.シリアルポート_DataReceived);
+            // 
+            // 座標擬送信ボタン
+            // 
+            this.座標擬送信ボタン.Location = new System.Drawing.Point(165, 32);
+            this.座標擬送信ボタン.Name = "座標擬送信ボタン";
+            this.座標擬送信ボタン.Size = new System.Drawing.Size(75, 23);
+            this.座標擬送信ボタン.TabIndex = 7;
+            this.座標擬送信ボタン.Text = "擬送信";
+            this.座標擬送信ボタン.UseVisualStyleBackColor = true;
+            this.座標擬送信ボタン.Click += new System.EventHandler(this.座標擬送信ボタン_Click);
             // 
             // serial
             // 
@@ -779,9 +856,12 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdnB)).EndInit();
             this.操作ボタンボックス.ResumeLayout(false);
             this.操作ボタンボックス.PerformLayout();
-            this.命令文一覧タブ.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -823,15 +903,10 @@
         private System.Windows.Forms.Button 前進ボタン;
         private System.Windows.Forms.Button 後退ボタン;
         private System.Windows.Forms.Button 停止ボタン;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox 操作ボタンボックス;
         private System.Windows.Forms.Button 出力切断ボタン;
         private System.Windows.Forms.Label 操作状態ラベル;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage 命令文一覧タブ;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TabPage ピン管理タブ;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -852,5 +927,15 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button 表示テスト;
+        private System.Windows.Forms.Button 消去テスト;
+        private System.Windows.Forms.NumericUpDown cdnA;
+        private System.Windows.Forms.NumericUpDown cdnB;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button 探知開始ボタン;
+        private System.Windows.Forms.CheckBox 擬送信チェックボックス;
+        private System.Windows.Forms.Button 座標擬送信ボタン;
     }
 }

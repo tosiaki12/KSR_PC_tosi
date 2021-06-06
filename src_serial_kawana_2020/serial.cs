@@ -21,8 +21,8 @@ namespace Serial_kawana_2020
         private String 送信テキスト;//送信時更新
         private String 受信テキスト;
 
-        private String[] 送信データ = { "test" , "0" };//四文字程度、一文字
-        private String[] 受信データ = { "test" , "0" };
+        private String[] 送信データ = { "test", "0" };//四文字程度、一文字
+        private String[] 受信データ = { "test", "0" };
 
         private delegate void delegate_受信データ表示(String text);
 
@@ -191,26 +191,27 @@ namespace Serial_kawana_2020
 
         private void 送信ボタン_Click(object sender, EventArgs e)
         {
-            String 送信テキスト = 送信テキストボックス.Text;
-            if (String.IsNullOrWhiteSpace(送信テキスト)) return;
-            if (命令化チェックボックス.Checked == true) 送信テキスト = '<' + 送信テキスト + '>';
+            String 送信テキストk = 送信テキストボックス.Text;
+            if (String.IsNullOrWhiteSpace(送信テキストk)) return;
+            if (命令化チェックボックス.Checked == true) 送信テキストk = '<' + 送信テキストk + '>';
             if (送信ボタン.BackColor == Color.DarkRed)
             {
-                通信ログボックス.AppendText(送信テキスト + "\r\n");
+                通信ログボックス.AppendText(送信テキストk + "\r\n");
+                送信時処理(送信テキストk);
                 送信テキストボックス.Clear();
                 return;
             }
             try
             {
-                シリアルポート.Write(送信テキスト);
+                シリアルポート.Write(送信テキストk);
             }
             catch (Exception ex)
             {
                 通信ログボックス.AppendText(ex.ToString() + "\r\n");
                 return;
             }
-            通信ログボックス.AppendText("送信-> " + 送信テキスト + "\r\n");
-            this.送信テキスト = 送信テキスト;
+            通信ログボックス.AppendText("送信-> " + 送信テキストk + "\r\n");
+            this.送信テキスト = 送信テキストk;
             送信時処理(this.送信テキスト);
             送信テキストボックス.Clear();
         }
@@ -226,6 +227,8 @@ namespace Serial_kawana_2020
             /*
              * ';'は命令の改行
              * ']'は命令の送信（最終行）
+             * 
+             * 送信ボタンを押さなくても送信文字があれば送信
              * 
              */
             string text = 送信テキストボックス.Text;
@@ -256,12 +259,21 @@ namespace Serial_kawana_2020
 
         private void シリアルポート_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            tryRecData(false, "ddd");
+        }
+
+        private void tryRecData(bool isuseD, string dData)
+        {
             //https://www.atmarkit.co.jp/ait/articles/0506/17/news111.html
             //Windowsフォームで別スレッドからコントロールを操作するには？
-            if (!(シリアルポート.IsOpen)) return;
+            //if (!(シリアルポート.IsOpen)) return;
             try
             {
-                string data = シリアルポート.ReadTo("\r\n");//改行まで読む
+                string data = "nowrite";
+                if (!(isuseD)) data = シリアルポート.ReadTo("\r\n");//改行まで読む
+
+                if (isuseD) data = dData;//擬受信用
+
                 delegate_受信データ表示 d = new delegate_受信データ表示(受信データ表示);
                 Invoke(d, data);//安全にdを呼び出す
                 //Invoke(new delegate_受信データ表示(受信データ表示), new Object[] { data });
@@ -270,6 +282,9 @@ namespace Serial_kawana_2020
             {
                 通信ログボックス.AppendText(ex.ToString() + "\r\n");
             }
+
+
+
         }
 
         private void 受信データ表示(string text)
@@ -289,7 +304,7 @@ namespace Serial_kawana_2020
 
 
 
-        //保安処理---------------------------------------------------------------------------------------
+        //停止処理---------------------------------------------------------------------------------------
         private void 出力切断ボタン_Click(object sender, EventArgs e)//実装中
         {
             if (出力切断ボタン.BackColor == Color.Firebrick)
@@ -319,74 +334,14 @@ namespace Serial_kawana_2020
 
 
 
+
+
         //---------------------------------------------------------------------------------------
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText("run s;\r\nrun m]\r\n");
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            string c = "LEDa " + textBox1.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void 擬送信チェックボックス_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string c = "LEDb " + textBox2.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string c = "LEDc " + textBox3.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string c = "LEDd " + textBox4.Text;
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            string c = "onLED 0";
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            string c = "ofLED 0";
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            string c = "poff 0";
-            送信テキストボックス.Clear();
-            送信テキストボックス.AppendText(c);
-            送信ボタン_Click(null, null);
-        }
     }
 }
