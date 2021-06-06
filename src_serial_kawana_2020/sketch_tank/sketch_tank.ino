@@ -15,7 +15,7 @@
    あればstringにして命令かどうか判定
    命令ならmeireiRead()
    命令以外は一文字ずつループしながら読む
-   
+
    //-----------------------------------------------------------------
    命令一覧
 
@@ -24,9 +24,9 @@
 
    run f/m/h/u/s
    モーターを制御する　パラメータは順に前進、右、左、後退、停止
-   
+
    echo b/e
-   
+
    //-----------------------------------------------------------------
    ピン一覧
    ピンの設定は機能ごとのファイルで
@@ -34,7 +34,7 @@
    08:drive
    09:drive
    10:drive
-   
+
    02:
    03:
 
@@ -57,6 +57,8 @@ void setup() {
 
   setup_drive();
   setup_echo();
+  setup_sert();
+  //setup_step();
 
 }
 
@@ -82,13 +84,17 @@ void loop() {
 
   loop_drive();
   loop_echo();
+  loop_sert();
+  //loop_step();
 
 }
 
 void meireiRead(String com) {
   String command;
+  String data = "*";
   char t;
   bool isFincom = false;//空白か
+  bool isData = false;
   for (char a : com) {
     if (a != ' ' && isFincom == false) {//命令文字なら
       command += a;
@@ -96,28 +102,41 @@ void meireiRead(String com) {
       isFincom = true;
       continue;
     }
-    if (isFincom == true) t = a;
+    if (isFincom == true) {
+      t = a;
+      //
+      /*
+         '*'でデータ入りを示す
+         例 stps *90
+
+      */
+      if (isData) data += a;
+      if (t == '*') isData = true;
+
+    }
   }
   if (command.compareTo("poff") == 0) {
     for (int i = 0; i < 14; i++) {
-      digitalWrite(i, LOW); //作業中
+      digitalWrite(i, LOW); //作業中 復帰機能なし
     }
   }
   Serial.println("com:" + command);
   Serial.println("pal:" + String(t));
+  Serial.println("int:" + data);
   //Serial.println("pal:" + t);//これをやると送信できない　DECをつけても無理 文字列が詰まる
   chkCommand(command, t);
 
 }
 
+
 //命令を実行する
 void chkCommand(String com, char t) {
-   
+
   if (com.compareTo("test") == 0) {//比較
     Serial.println("vir: " + String(commonVir));
     Serial.flush();
   }
-  
+
 
   if (com.compareTo("run") == 0)  com_drive(t);
   if (com.compareTo("echo") == 0) com_echo(t);

@@ -56,7 +56,7 @@ int runEcho() {
     if (intdis > 800) {
       Serial.println("OOR");
     } else {
-      Serial.println("dis:" + String(intdis) + "cm");
+      Serial.println("d" + String(intdis*2) + "," + String(getnd()));
     }
     Serial.flush();
   }
