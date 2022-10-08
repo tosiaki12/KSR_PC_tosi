@@ -1,0 +1,4 @@
+{
+    "board": "arduino:avr:uno",
+    "sketch": "src_serial_kawana_2020\\sketch_tank\\sketch_tank.ino"
+}
